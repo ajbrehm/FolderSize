@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderSize.WPF", "FolderSize.WPF\FolderSize.WPF.csproj", "{C8BB4701-80F5-4C72-8D5C-2D55C03180C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderSize.Common", "FolderSize.Common\FolderSize.Common.csproj", "{E011970A-F528-4EEB-819F-1858B9555F63}"
@@ -27,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93203547-3718-4C23-978F-B6BD0E2014ED}
 	EndGlobalSection
 EndGlobal

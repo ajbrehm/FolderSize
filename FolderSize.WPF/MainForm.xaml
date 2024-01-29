@@ -15,28 +15,10 @@
 
       <Storyboard x:Key="IdlingStoryboard" Duration="00:00:05" Completed="Storyboard_Completed" />
       
-      <Storyboard x:Key="PresentInfoBlockStoryboard" Completed="Storyboard_Completed">
-         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InfoBubbleTranslation" Storyboard.TargetProperty="Y">
-            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="400" />
-            <SplineDoubleKeyFrame KeyTime="00:00:00.30" Value="200" />
-            <SplineDoubleKeyFrame KeyTime="00:00:00.80" Value="0" />
-         </DoubleAnimationUsingKeyFrames>
-         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InfoBubble" Storyboard.TargetProperty="Opacity">
-            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0" />
-            <SplineDoubleKeyFrame KeyTime="00:00:00.80" Value="1" />
-         </DoubleAnimationUsingKeyFrames>
-      </Storyboard>
+    
       
       <Storyboard x:Key="HideInfoBlockStoryboard" Completed="Storyboard_Completed">
-         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InfoBubbleTranslation" Storyboard.TargetProperty="Y">
-            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0" />
-            <SplineDoubleKeyFrame KeyTime="00:00:00.30" Value="200" />
-            <SplineDoubleKeyFrame KeyTime="00:00:00.80" Value="400" />
-         </DoubleAnimationUsingKeyFrames>
-         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InfoBubble" Storyboard.TargetProperty="Opacity">
-            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1" />
-            <SplineDoubleKeyFrame KeyTime="00:00:00.80" Value="0" />
-         </DoubleAnimationUsingKeyFrames>
+       
       </Storyboard>
       
    </Window.Resources>
@@ -62,6 +44,7 @@
          Margin="44,0,254,8" 
          VerticalAlignment="Bottom" 
          Height="27" 
+         x:Name="textPath"
          Text="{Binding ElementName=FolderTreeView,Path=Path,UpdateSourceTrigger=PropertyChanged}" 
          />
 
@@ -103,47 +86,6 @@
          x:Name="FolderTreeView"
          />
       
-      <local:BubbleContentControl 
-         IsHitTestVisible="False"
-         x:Name="InfoBubble"
-         HorizontalAlignment="Right" 
-         VerticalAlignment="Bottom" 
-         Margin="0,0,40,40" 
-         Height="300"
-         MinWidth="400"
-         >
-         <local:BubbleContentControl.RenderTransform>
-            <TranslateTransform x:Name="InfoBubbleTranslation" Y="400"/>
-         </local:BubbleContentControl.RenderTransform>
-         <Grid>
-            <TextBlock
-               x:Name="InitialInfoText"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               FontSize="36"
-               Foreground="White"
-            >
-            Click to scan disk
-            </TextBlock>
-            <TextBlock
-               x:Name="HintInfoText"
-               Visibility="Collapsed"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               FontSize="24"
-               Foreground="White"
-            >
-               <Run>Click for path</Run>
-               <LineBreak/>
-               <Run>drag to move</Run>
-               <LineBreak/>
-               <Run>mouse wheel zooms</Run>
-               <LineBreak/>
-               <Run>double click to explore</Run>
-               <LineBreak/>
-               <Run>right click resets position</Run>
-            </TextBlock>
-         </Grid>
-      </local:BubbleContentControl>
+      
    </Grid>
 </Window>

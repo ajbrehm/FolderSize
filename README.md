@@ -23,3 +23,6 @@ FolderSize is intended to be a simple application to determine what folders take
 * A foldersize application written in C++ with the explicit intent to reduce the system requirements to a minimum to further reduce deployment pain.
 * Console UI to be usuable on headless windows servers
 
+## modified version in this repo
+* I modified this version to work with .NET Framework 4.8, not show the infobubble, and use a command line parameter (if given) to set the drive or directory to scan. (ajbrehm)
+

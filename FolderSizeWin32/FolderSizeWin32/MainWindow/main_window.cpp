@@ -1146,51 +1146,51 @@ namespace main_window
                }
             }
             break;
-         case WM_MOUSEWHEEL:
-            {
-               auto scroll = static_cast<double> (static_cast<short> (HIWORD (w_param))) / WHEEL_DELTA;
-               auto mouse_coord = w::get_client_mouse_coordinate (hwnd, l_param);
+         //case WM_MOUSEWHEEL:
+         //   {
+         //      auto scroll = static_cast<double> (static_cast<short> (HIWORD (w_param))) / WHEEL_DELTA;
+         //      auto mouse_coord = w::get_client_mouse_coordinate (hwnd, l_param);
 
-               if (s_state.get () && w::is_inside (folder_tree_rect, mouse_coord))
-               {
-                  auto scale = s::pow (1.2, scroll);
+         //      if (s_state.get () && w::is_inside (folder_tree_rect, mouse_coord))
+         //      {
+         //         auto scale = s::pow (1.2, scroll);
 
-                  auto reverse_transform = vt::view_to_screen (
-                        vt::transform_direction::reverse
-                     ,  vt::create_vector (folder_tree_size.cx, folder_tree_size.cy)
-                     ,  s_state->centre
-                     ,  s_state->zoom
-                     );
+         //         auto reverse_transform = vt::view_to_screen (
+         //               vt::transform_direction::reverse
+         //            ,  vt::create_vector (folder_tree_size.cx, folder_tree_size.cy)
+         //            ,  s_state->centre
+         //            ,  s_state->zoom
+         //            );
 
-                  auto x = mouse_coord.x - folder_tree_rect.left;
-                  auto y = mouse_coord.y - folder_tree_rect.top;
+         //         auto x = mouse_coord.x - folder_tree_rect.left;
+         //         auto y = mouse_coord.y - folder_tree_rect.top;
 
-                  auto centre_of_screen_x = folder_tree_size.cx / 2;
-                  auto centre_of_screen_y = folder_tree_size.cy / 2;
+         //         auto centre_of_screen_x = folder_tree_size.cx / 2;
+         //         auto centre_of_screen_y = folder_tree_size.cy / 2;
 
-                  auto coord              = l::shrink_vector (
-                        reverse_transform * vt::create_extended_vector (x, y)
-                     );
+         //         auto coord              = l::shrink_vector (
+         //               reverse_transform * vt::create_extended_vector (x, y)
+         //            );
 
-                  auto centre_of_screen   = l::shrink_vector (
-                        reverse_transform * vt::create_extended_vector (centre_of_screen_x, centre_of_screen_y)
-                     );
+         //         auto centre_of_screen   = l::shrink_vector (
+         //               reverse_transform * vt::create_extended_vector (centre_of_screen_x, centre_of_screen_y)
+         //            );
 
-                  auto diff                  = centre_of_screen - coord;
-                  auto new_centre_of_screen  = coord + l::scale_vector (1 / scale, diff);
+         //         auto diff                  = centre_of_screen - coord;
+         //         auto new_centre_of_screen  = coord + l::scale_vector (1 / scale, diff);
 
-                  auto new_zoom     = l::scale_vector (
-                        scale
-                        ,  s_state->zoom
-                     );
+         //         auto new_zoom     = l::scale_vector (
+         //               scale
+         //               ,  s_state->zoom
+         //            );
 
-                  s_state->centre   = new_centre_of_screen  ;
-                  s_state->zoom     = new_zoom              ;
+         //         s_state->centre   = new_centre_of_screen  ;
+         //         s_state->zoom     = new_zoom              ;
 
-                  invalidate_folder_tree_area (hwnd);
-               }
-            }
-            break;
+         //         invalidate_folder_tree_area (hwnd);
+         //      }
+         //   }
+         //   break;
          case WM_DESTROY:
             PostQuitMessage (0);
             break;
